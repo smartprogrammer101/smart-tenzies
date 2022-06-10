@@ -1,38 +1,99 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  margin: 0 auto;
+  margin-top: 2em;
+  background-color: aliceblue;
+  padding: 1em;
+  /* border: solid; */
+  width: 24em;
+  box-shadow: 0 0 7px;
+  border-radius: 1em;
+}
+h1, h2, h4, p {text-align: center; margin-bottom: .5em;}
+h2 {margin-bottom: .2em; margin-top: 1em;}
+h4 {font-family: karla;}
+h6 {
+  font-family: karla;
+  font-style: italic;
+  color: darkblue;
+  position: fixed;
+  right: 1em;
+  top: 1em;
+}
+.high-score {
+  animation: high-score 500ms linear alternate infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.dice-container {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dice {
+  width: 1.5em;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  aspect-ratio: 1;
+  background-color: #fff;
+  box-shadow: 0 3px 5px;
+  font-size: 2em;
+  font-weight: 900;
+  border-radius: .3em;
+  user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.dice.selected {
+  background-color: blueviolet;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  border: none;
+  outline: none;
+  display: block;
+  padding: 1em 3em;
+  background-color: rgba(107, 13, 231, 1);
+  color: #fff;
+  margin: 0 auto;
+}
+button:hover {
+  background-color: rgba(107, 13, 231, .7);
+}
+button:active {
+  background-color: rgba(107, 13, 231, 1);
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+.time-up {
+  color: rgb(226, 19, 19);
+}
+.you-won {
+  color: green;
+}
+.check-out {
+  background-color: green;
+}
+
+.hurry-up {
+  /* color: gold; */
+  animation: blink 200ms alternate infinite;
+}
+
+@keyframes blink {
+  from {color: gold;}
+  to {color: red;}
+}
+@keyframes high-score {
+  from {color: green;}
+  to {color: rgb(205, 236, 205);}
 }
